@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+	<div class="table-responsive col-md-12 container">
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>Nome</th>
+					<th>Usuário</th>
+					<th>Setor</th>
+					<th>CPF</th>
+					<th>Filial</th>
+					<th>Cargo</th>
+					<th class="actions">Ações</th>
+				</tr>
+			</thead>
+			<tbody>
+                 {% for user in users %}
+				<tr>
+                        <td>{{ user.first_name }}</td>
+                        <td>{{ user.username }}</td>
+                        <td>{{ user.perfil.setor }}</td>
+                        <td>{{ user.perfil.cpf }}</td>
+                        <td>{{ user.perfil.filial }}</td>
+                        <td>{{ user.perfil.cargo }}</td>
+                        <td class="actions">
+						<a class="btn btn-danger btn-xs"  href="{% url 'core:delete' user.id %}">Excluir</a>
+						<a class="btn btn-warning btn-xs" href="{% url 'core:atualizar' user.perfil.id %}">Editar</a>
+						
+				</tr>
+                 {% endfor %}
+
+			</tbody>
+		</table>
+	</div>
+		
+{% endblock %}

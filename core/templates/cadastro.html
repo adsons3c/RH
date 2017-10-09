@@ -1,7 +1,10 @@
+{% extends 'base.html' %}
 
-<a href="{% url 'core:logout' %}"> Logout</a>
-<form method="POST">
-	{% csrf_token %}
-  {{ form.as_p }}
-  <button type="submit">Save changes</button>
-</form>
+{% block content %}
+	<a href="{% url 'core:logout' %}"> Logout</a>
+	<form method="POST">
+		{% csrf_token %}
+	  {{ form.as_p }}
+	  <button type="submit">Save changes</button>
+	</form>
+{% endblock %}

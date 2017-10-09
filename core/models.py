@@ -52,8 +52,9 @@ CIVIL = (
 class Perfil(models.Model):
 	user = models.OneToOneField(User, on_delete=models.CASCADE)
 	data_nascimento = models.DateField(null=True, blank=True)
-	cpf = models.CharField(max_length=11)
+	cpf = models.CharField(max_length=11, unique=True)
 	filial = models.CharField(max_length=30, choices=FILIAL)
+	setor = models.CharField(max_length=40, choices=SETOR)
 	vinculo = models.CharField(max_length=20, choices=VINCULO)
 	cargo = models.CharField(max_length=20, choices=CARGO)
 	mae = models.CharField(max_length=150)

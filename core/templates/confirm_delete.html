@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}" />
+    <script href="{% static 'jquery/jquery.min.js' %}" ></script>
+    <script href="{% static 'js/bootstrap.min.js' %}"></script>
+    
+    <form method="post" class="form-control" role="form">{% csrf_token %}
+        Você tem certeza que deseja remover o funcionário "{{ object }}" ?
+        <input type="submit" class="btn btn-danger btn-xs"  value="Remover" />
+    </form>
+    
+</head>

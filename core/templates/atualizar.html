@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <div class="panel-title">Atualizar <Dados></Dados></div>
+        </div>
+        <div class="panel-body">
+            <form action="" method="POST"  id="signupform" class="form-horizontal" role="form">
+
+                <div id="signupalert" style="display:none" class="alert alert-danger">
+                    <p>Erro:</p>
+                    <span></span>
+                </div>
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="Nome" class="col-md-3 control-label">Nome Completo</label>
+                    <div class="col-md-9">
+                        <input type="text" required="" class="form-control" name="name" value="{{ funcionario.name }}" >
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="matricula" class="col-md-3 control-label">Matricula</label>
+                    <div class="col-md-9">
+                        <input type="number" required="" class="form-control" name="matricula" value="{{ funcionario.matricula }}">
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="setor" class="col-md-3 control-label">Setor</label>
+                    <div class="col-md-9">
+                        <input type="text" required="" class="form-control" name="setor" value="{{ funcionario.setor }}">
+                    </div>
+                </div>
+                  <div class="form-group">
+                    <label for="cpf" class="col-md-3 control-label">CPF</label>
+                    <div class="col-md-9">
+                        <input type="number" required="" class="form-control" name="cpf" value="{{ funcionario.cpf }}">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <!-- Button -->
+                    <div class="col-md-offset-3 col-md-9">
+                        <button id="btn-signup" type="submit" class="btn btn-info"><i class="icon-hand-right"></i>
+                            Atualizar
+                        </button>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
