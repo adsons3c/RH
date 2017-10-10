@@ -65,16 +65,18 @@ def listar(request):
 
 def delete(request,pk, template_name='confirm_delete.html'):
 	user = get_object_or_404(User, pk=pk)
-	if request.mothod == "POST":
+	if request.method == "POST":
 		user.delete()
-		user.perfil.delete()
-		return redirect('listar')
+		return redirect('/listar')
 	return render(request, template_name, {'object':user})
 
-def atualizar(request, pk, template_name='atuallizar.html'):
-	user = 	get_object_or_404(Perfil, pk=pk)
+def atualizar(request, pk, template_name='cadastro.html'):
+	user = 	get_object_or_404(User, pk=pk)
 	form = PerfilForm(request.POST or None, instance=user)
 	if form.is_valid:
 		form.save()
-		return redirect('listar')
+		return redirect('/listar')
 	return render(request,template_name,{'form':form, 'user':user})
+
+def delete2(request):
+	return render(request, 'confirm_delete.html')

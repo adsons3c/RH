@@ -7,6 +7,7 @@ urlpatterns = [
 	url(r'^logout/$', views.do_logout, name='logout'),
 	url(r'^home/$', views.home, name='home'),
 	url(r'^listar/$', views.listar, name='listar'),
+	url(r'^delete2/$', views.delete2, name='delete2'),
 	url(r'^delete/(?P<pk>\d+)$', views.delete, name='delete'),
 	url(r'^atualizar/(?P<pk>\d+)$', views.atualizar, name='atualizar'),
 ]
